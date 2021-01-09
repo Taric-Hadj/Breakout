@@ -1,7 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stddef.h>
 #include <math.h>
+#include <unistd.h>
 #include "tpGfx/GfxLib.h"
 #include "tpGfx/BmpLib.h"
 #include "tpGfx/ESLib.h"
@@ -9,7 +11,7 @@
 #define HauteurFenetre 600
 #define FANTOME 4
 
-void GenMap();
+void gestionEvenement(EvenementGfx evenement);
 
 typedef struct {
     int x;
