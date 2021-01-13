@@ -13,16 +13,3 @@
 
 void gestionEvenement(EvenementGfx evenement);
 
-typedef struct {
-    int x;
-    int y;
-    int v;
-    int d;
-    int state;
-} Personnage;
-
-typedef struct {
-        int score;
-        char* pseudo;
-        int classement;
-}resultat;
