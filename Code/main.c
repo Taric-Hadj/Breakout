@@ -27,7 +27,7 @@ void gestionEvenement(EvenementGfx evenement)
         couleurCourante(20, 20, 20);
         rectangle(largeurFenetre() / 10, 2 * hauteurFenetre() / 10 + 40, 3 * largeurFenetre() / 9, 2 * hauteurFenetre() / 6 + 5);
         couleurCourante(255, 255, 255);
-        afficheChaine("Menu", 40, largeurFenetre() / 10 + 18, 2 * hauteurFenetre() / 8 + 23);
+        afficheChaine("Option", 40, largeurFenetre() / 10 + 18, 2 * hauteurFenetre() / 8 + 23);
         couleurCourante(20, 20, 20);
         rectangle(7 * largeurFenetre() / 8 + 5, 2 * hauteurFenetre() / 10 + 40, 4 * largeurFenetre() / 7 + 20, 2 * hauteurFenetre() / 6 + 5);
         couleurCourante(255, 255, 255);
