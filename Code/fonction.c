@@ -2,7 +2,7 @@
 
 
 void accueil(){
-     effaceFenetre(0, 0, 0);
+        effaceFenetre(0, 0, 0);
         couleurCourante(255, 255, 0);
         epaisseurDeTrait(6);
         afficheChaine("PacMan", 80, 5* largeurFenetre() / 20 + 15, 32* hauteurFenetre() / 36);

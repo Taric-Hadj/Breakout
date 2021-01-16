@@ -1,6 +1,7 @@
-#include"fonction.h"
+#include "fonction.h"
 
-int main(int argc, char **argv){
+int main(int argc, char **argv)
+{
     initialiseGfx(argc, argv);
     prepareFenetreGraphique("PACMAN", LargeurFenetre, HauteurFenetre);
     lanceBoucleEvenements();
@@ -8,6 +9,7 @@ int main(int argc, char **argv){
 }
 void gestionEvenement(EvenementGfx evenement)
 {
+   static int choixpage = 0;
     switch (evenement)
     {
     case Initialisation:
@@ -19,7 +21,13 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Affichage:
-       accueil();
+        if (choixpage == 0) {
+                accueil();
+        }
+            if (choixpage == 1)
+            {
+                pageJeu();
+            }
 
         break;
 
@@ -37,21 +45,22 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case BoutonSouris:
-      if(etatBoutonSouris()== GaucheAppuye) {
-          if((6 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 3 * largeurFenetre() / 9) && (6 * hauteurFenetre() / 9<= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 9))
-          { 
-                pageJeu();
-          }
-      }
-      break;
+        if (etatBoutonSouris() == GaucheAppuye)
+        {
+            if ((3 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 9 ) && (5 * hauteurFenetre() / 9 <= ordonneeSouris()) && (ordonneeSouris() <=6 * hauteurFenetre() / 9 ))
+            {
+                choixpage = 1;
+            }
+        }
+        break;
 
     case Souris:
-        case Inactivite:
-            break;
+    case Inactivite:
+        break;
 
-        case Redimensionnement:
-            printf("Largeur : %d\t", largeurFenetre());
-            printf("Hauteur : %d\n", hauteurFenetre());
-            break;
-        }
+    case Redimensionnement:
+        printf("Largeur : %d\t", largeurFenetre());
+        printf("Hauteur : %d\n", hauteurFenetre());
+        break;
     }
+}
