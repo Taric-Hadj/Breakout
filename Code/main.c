@@ -37,17 +37,14 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case BoutonSouris:
-      /*  switch (page())
-        {
-        case 0:
-            break;
+      if(etatBoutonSouris()== GaucheAppuye) {
+          if((6 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 3 * largeurFenetre() / 9) && (6 * hauteurFenetre() / 9<= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 9))
+          { 
+                pageJeu();
+          }
+      }
+      break;
 
-        case 1:
-            break;
-
-        }
-        break;
-*/
     case Souris:
         case Inactivite:
             break;

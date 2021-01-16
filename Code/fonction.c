@@ -27,5 +27,5 @@ void accueil(){
 }
 
 void pageJeu(){
-    
+    effaceFenetre(0, 0, 0);
 }
