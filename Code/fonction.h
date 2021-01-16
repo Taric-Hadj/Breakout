@@ -12,4 +12,4 @@
 #define FANTOME 4
 
 void gestionEvenement(EvenementGfx evenement);
-
+void accueil();
