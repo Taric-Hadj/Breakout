@@ -6,7 +6,7 @@ void accueil(){
         couleurCourante(255, 255, 0);
         epaisseurDeTrait(6);
         afficheChaine("PacMan", 80, 5* largeurFenetre() / 20 + 15, 32* hauteurFenetre() / 36);
-        //
+        //test
         couleurCourante(20, 20, 20);
         rectangle(3 * largeurFenetre() / 9, 5 * hauteurFenetre() / 9, 6 * largeurFenetre() / 9, 6 * hauteurFenetre() / 9);
         epaisseurDeTrait(4);
