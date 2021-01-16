@@ -14,3 +14,5 @@
 void gestionEvenement(EvenementGfx evenement);
 void accueil();
 void pageJeu();
+void pageOption();
+void pageScore();

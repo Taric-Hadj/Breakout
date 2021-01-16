@@ -35,3 +35,12 @@ void accueil(){
 void pageJeu(){
     effaceFenetre(0, 0, 0);
 }
+
+void pageOption(){
+    effaceFenetre(0, 0, 0);
+
+}
+
+void pageScore(){
+    effaceFenetre(0, 0, 0);    
+}

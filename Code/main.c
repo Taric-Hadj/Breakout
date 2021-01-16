@@ -29,11 +29,19 @@ void gestionEvenement(EvenementGfx evenement)
 				ecrisImage((largeurFenetre()-image->largeurImage),hauteurFenetre()-image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
                 }
         }
-
             if (choixpage == 1)
             {
                 pageJeu();
             }
+             if (choixpage == 2)
+            {
+                pageOption();
+            }
+            if (choixpage == 3)
+            {
+                pageScore();
+            }
+
         break;
 
     case Clavier:
@@ -52,10 +60,22 @@ void gestionEvenement(EvenementGfx evenement)
     case BoutonSouris:
         if (etatBoutonSouris() == GaucheAppuye)
         {
+            //jouer
             if ((3 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 9 ) && (5 * hauteurFenetre() / 9 <= ordonneeSouris()) && (ordonneeSouris() <=6 * hauteurFenetre() / 9 ))
             {
                 choixpage = 1;
             }
+            //options
+            if ((largeurFenetre() / 10<= abscisseSouris()) && (abscisseSouris() <= 3* largeurFenetre() /8) && (2 * hauteurFenetre() / 10 + 40 <= ordonneeSouris()) && (ordonneeSouris() <=2 * hauteurFenetre() / 6 + 5 ))
+            {
+                choixpage = 2;
+            }
+            //score
+             if ((4 * largeurFenetre() / 7 + 20<= abscisseSouris()) && (abscisseSouris() <= 7 * largeurFenetre() / 8 + 5) && (2 * hauteurFenetre() / 10 + 40<= ordonneeSouris()) && (ordonneeSouris() <=2 * hauteurFenetre() / 6 + 5))
+            {
+                choixpage = 3;
+            }
+            //quitter
              if ((3 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 10 ) && (6 * hauteurFenetre() / 50 <= ordonneeSouris()) && (ordonneeSouris() <=5 * hauteurFenetre() / 25 ))
             {
                 termineBoucleEvenements();
