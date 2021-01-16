@@ -10,10 +10,12 @@ int main(int argc, char **argv)
 void gestionEvenement(EvenementGfx evenement)
 {
    static int choixpage = 0;
+   static DonneesImageRGB *image = NULL;
     switch (evenement)
     {
     case Initialisation:
         demandeTemporisation(20);
+        image = lisBMPRGB("./images/pacman_logo.bmp");
         break;
 
     case Temporisation:
@@ -23,12 +25,15 @@ void gestionEvenement(EvenementGfx evenement)
     case Affichage:
         if (choixpage == 0) {
                 accueil();
+                if (image != NULL){ 
+				ecrisImage((largeurFenetre()-image->largeurImage),hauteurFenetre()-image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
+                }
         }
+
             if (choixpage == 1)
             {
                 pageJeu();
             }
-
         break;
 
     case Clavier:
@@ -50,6 +55,10 @@ void gestionEvenement(EvenementGfx evenement)
             if ((3 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 9 ) && (5 * hauteurFenetre() / 9 <= ordonneeSouris()) && (ordonneeSouris() <=6 * hauteurFenetre() / 9 ))
             {
                 choixpage = 1;
+            }
+             if ((3 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 10 ) && (6 * hauteurFenetre() / 50 <= ordonneeSouris()) && (ordonneeSouris() <=5 * hauteurFenetre() / 25 ))
+            {
+                termineBoucleEvenements();
             }
         }
         break;
