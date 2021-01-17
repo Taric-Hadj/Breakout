@@ -75,15 +75,18 @@ void gestionEvenement(EvenementGfx evenement)
                 }
             }
             //options
+            if (choixpage == 2)
+            {
+                if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
+                {
+                    choixpage = 4;
+                }
+            }
             if (choixpage == 0)
             {
                 if ((1.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
                 {
                     choixpage = 2;
-                    if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
-                    {
-                        choixpage = 4;
-                    }
                 }
             }
             //score
