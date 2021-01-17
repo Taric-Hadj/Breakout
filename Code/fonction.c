@@ -56,5 +56,5 @@ void pageScore()
 void Credits()
 {
     couleurCourante(255, 255, 0);
-    afficheChaine("Jouer", 60, 5.5 * largeurFenetre() / 14, 7 * hauteurFenetre() / 12);
+    afficheChaine("Taric", 60, 5.5 * largeurFenetre() / 14, 7 * hauteurFenetre() / 12);
 }
