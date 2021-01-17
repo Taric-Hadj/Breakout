@@ -23,30 +23,7 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Affichage:
-        if (choixpage == 0)
-        {
-            accueil();
-            if (image != NULL)
-            {
-                ecrisImage((largeurFenetre() - image->largeurImage), hauteurFenetre() - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
-            }
-        }
-        if (choixpage == 1)
-        {
-            pageJeu();
-        }
-        if (choixpage == 2)
-        {
-            pageOption();
-        }
-        if (choixpage == 3)
-        {
-            pageScore();
-        }
-        if (choixpage == 4)
-        {
-            Credits();
-        }
+       AffichePage(choixpage);
 
         break;
 

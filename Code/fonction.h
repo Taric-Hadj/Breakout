@@ -12,6 +12,7 @@
 #define FANTOME 4
 
 void gestionEvenement(EvenementGfx evenement);
+int AffichePage(int choixpage);
 void accueil();
 void pageJeu();
 void pageOption();
