@@ -16,3 +16,4 @@ void accueil();
 void pageJeu();
 void pageOption();
 void pageScore();
+void Credits();

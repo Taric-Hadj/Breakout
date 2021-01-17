@@ -9,8 +9,8 @@ int main(int argc, char **argv)
 }
 void gestionEvenement(EvenementGfx evenement)
 {
-   static int choixpage = 0;
-   static DonneesImageRGB *image = NULL;
+    static int choixpage = 0;
+    static DonneesImageRGB *image = NULL;
     switch (evenement)
     {
     case Initialisation:
@@ -23,24 +23,30 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Affichage:
-        if (choixpage == 0) {
-                accueil();
-                if (image != NULL){ 
-				ecrisImage((largeurFenetre()-image->largeurImage),hauteurFenetre()-image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
-                }
+        if (choixpage == 0)
+        {
+            accueil();
+            if (image != NULL)
+            {
+                ecrisImage((largeurFenetre() - image->largeurImage), hauteurFenetre() - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
+            }
         }
-            if (choixpage == 1)
-            {
-                pageJeu();
-            }
-             if (choixpage == 2)
-            {
-                pageOption();
-            }
-            if (choixpage == 3)
-            {
-                pageScore();
-            }
+        if (choixpage == 1)
+        {
+            pageJeu();
+        }
+        if (choixpage == 2)
+        {
+            pageOption();
+        }
+        if (choixpage == 3)
+        {
+            pageScore();
+        }
+        if (choixpage == 4)
+        {
+            Credits();
+        }
 
         break;
 
@@ -61,24 +67,40 @@ void gestionEvenement(EvenementGfx evenement)
         if (etatBoutonSouris() == GaucheAppuye)
         {
             //jouer
-            if ((3 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 9 ) && (5 * hauteurFenetre() / 9 <= ordonneeSouris()) && (ordonneeSouris() <=6 * hauteurFenetre() / 9 ))
+            if (choixpage == 0)
             {
-                choixpage = 1;
+                if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 10 * largeurFenetre() / 14) && (6.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 8 * hauteurFenetre() / 12))
+                {
+                    choixpage = 1;
+                }
             }
             //options
-            if ((largeurFenetre() / 10<= abscisseSouris()) && (abscisseSouris() <= 3* largeurFenetre() /8) && (2 * hauteurFenetre() / 10 + 40 <= ordonneeSouris()) && (ordonneeSouris() <=2 * hauteurFenetre() / 6 + 5 ))
+            if (choixpage == 0)
             {
-                choixpage = 2;
+                if ((1.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
+                {
+                    choixpage = 2;
+                    if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
+                    {
+                        choixpage = 4;
+                    }
+                }
             }
             //score
-             if ((4 * largeurFenetre() / 7 + 20<= abscisseSouris()) && (abscisseSouris() <= 7 * largeurFenetre() / 8 + 5) && (2 * hauteurFenetre() / 10 + 40<= ordonneeSouris()) && (ordonneeSouris() <=2 * hauteurFenetre() / 6 + 5))
+            if (choixpage == 0)
             {
-                choixpage = 3;
+                if ((8 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 12.5 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
+                {
+                    choixpage = 3;
+                }
             }
             //quitter
-             if ((3 * largeurFenetre() / 9<= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 10 ) && (6 * hauteurFenetre() / 50 <= ordonneeSouris()) && (ordonneeSouris() <=5 * hauteurFenetre() / 25 ))
+            if (choixpage == 0)
             {
-                termineBoucleEvenements();
+                if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (1.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 3 * hauteurFenetre() / 12))
+                {
+                    termineBoucleEvenements();
+                }
             }
         }
         break;
