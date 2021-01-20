@@ -49,12 +49,16 @@ void pageOption()
     couleurCourante(20, 20, 20);
     rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
     couleurCourante(255, 255, 0);
-    afficheChaine("retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+    afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
 }
 
 void pageScore()
 {
     effaceFenetre(0, 0, 0);
+    couleurCourante(20, 20, 20);
+    rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+    couleurCourante(255, 255, 0);
+    afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
 }
 
 void Credits()
@@ -65,6 +69,10 @@ void Credits()
     afficheChaine("Thibault", 60, 5.5 * largeurFenetre() / 14, 6 * hauteurFenetre() / 12);
     afficheChaine("Louise", 60, 5.5 * largeurFenetre() / 14, 4 * hauteurFenetre() / 12);
     afficheChaine("Fanny", 60, 5.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+    couleurCourante(20, 20, 20);
+    rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+    couleurCourante(255, 255, 0);
+    afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
 }
 
 int AffichePage(int choixpage)
@@ -94,6 +102,73 @@ int AffichePage(int choixpage)
     if (choixpage == 4)
     {
         Credits();
+    }
+    return choixpage;
+}
+
+int Clique(int choixpage)
+{
+    if (etatBoutonSouris() == GaucheAppuye)
+    {
+
+        //jouer
+        if (choixpage == 0)
+        {
+            if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 10 * largeurFenetre() / 14) && (6.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 8 * hauteurFenetre() / 12))
+            {
+                choixpage = 1;
+            }
+        }
+        //options
+        if (choixpage == 2)
+        {
+            if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
+            { //credits
+                choixpage = 4;
+            }
+            if ((0 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 3.5 * largeurFenetre() / 14) && (1 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 2 * hauteurFenetre() / 12))
+            { //retour
+                choixpage = 0;
+            }
+        }
+        if (choixpage == 4)//retour credits vers options
+            {
+                if ((0 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 3.5 * largeurFenetre() / 14) && (1 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 2 * hauteurFenetre() / 12))
+                { //retour
+                    choixpage = 2;
+                }
+            }
+        //
+        if (choixpage == 0)
+        {
+            if ((1.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
+            {
+                choixpage = 2;
+            }
+        }
+        //score
+        if (choixpage == 0)
+        {
+            if ((8 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 12.5 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
+            {
+                choixpage = 3;
+            }
+        }
+        if (choixpage == 3)
+        {
+            if ((0 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 3.5 * largeurFenetre() / 14) && (1 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 2 * hauteurFenetre() / 12))
+            { //retour
+                choixpage = 0;
+            }
+        }
+        //quitter
+        if (choixpage == 0)
+        {
+            if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (1.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 3 * hauteurFenetre() / 12))
+            {
+                termineBoucleEvenements();
+            }
+        }
     }
     return choixpage;
 }

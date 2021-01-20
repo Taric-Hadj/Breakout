@@ -23,7 +23,7 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Affichage:
-        AffichePage(choixpage);
+      choixpage =  AffichePage(choixpage);
 
         break;
 
@@ -41,53 +41,7 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case BoutonSouris:
-        if (etatBoutonSouris() == GaucheAppuye)
-        {
-            //jouer
-            if (choixpage == 0)
-            {
-                if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 10 * largeurFenetre() / 14) && (6.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 8 * hauteurFenetre() / 12))
-                {
-                    choixpage = 1;
-                }
-            }
-            //options
-            if (choixpage == 2)
-            {
-                if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
-                {//credits
-                    choixpage = 4;
-                    if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
-                    //retour
-                    {
-
-                    }
-                }
-            }
-            if (choixpage == 0)
-            {
-                if ((1.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
-                {
-                    choixpage = 2;
-                }
-            }
-            //score
-            if (choixpage == 0)
-            {
-                if ((8 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 12.5 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
-                {
-                    choixpage = 3;
-                }
-            }
-            //quitter
-            if (choixpage == 0)
-            {
-                if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (1.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 3 * hauteurFenetre() / 12))
-                {
-                    termineBoucleEvenements();
-                }
-            }
-        }
+      choixpage =  Clique(choixpage);
         break;
 
     case Souris:

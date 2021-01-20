@@ -13,6 +13,7 @@
 
 void gestionEvenement(EvenementGfx evenement);
 int AffichePage(int choixpage);
+int Clique(int choixpage);
 void accueil();
 void pageJeu();
 void pageOption();
