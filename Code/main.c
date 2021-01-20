@@ -15,7 +15,7 @@ void gestionEvenement(EvenementGfx evenement)
     {
     case Initialisation:
         demandeTemporisation(20);
-        image = lisBMPRGB("./images/pacman.bmp");
+        image = lisBMPRGB("./images/pacman2.bmp");
         break;
 
     case Temporisation:
@@ -24,6 +24,10 @@ void gestionEvenement(EvenementGfx evenement)
 
     case Affichage:
       choixpage =  AffichePage(choixpage);
+      if (image != NULL)
+         {
+             ecrisImage((9*largeurFenetre()/14 - image->largeurImage), 10*hauteurFenetre()/12 - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
+        }
 
         break;
 

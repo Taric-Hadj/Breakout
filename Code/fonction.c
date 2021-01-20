@@ -5,13 +5,13 @@ void accueil()
     effaceFenetre(0, 0, 0);
     couleurCourante(255, 255, 0);
     epaisseurDeTrait(6);
-    afficheChaine("PacMan", 80, 4 * largeurFenetre() / 14, 10 * hauteurFenetre() / 12);
+    afficheChaine("PacMan", 80, 4 * largeurFenetre() / 14, 10.5* hauteurFenetre() / 12);
     //
     couleurCourante(20, 20, 20);
-    rectangle(4.5 * largeurFenetre() / 14, 8 * hauteurFenetre() / 12, 10 * largeurFenetre() / 14, 6.5 * hauteurFenetre() / 12);
+    rectangle(4.5 * largeurFenetre() / 14, 7.5 * hauteurFenetre() / 12, 10 * largeurFenetre() / 14, 6 * hauteurFenetre() / 12);
     epaisseurDeTrait(4);
     couleurCourante(255, 255, 0);
-    afficheChaine("Jouer", 60, 5.5 * largeurFenetre() / 14, 7 * hauteurFenetre() / 12);
+    afficheChaine("Jouer", 60, 5.5 * largeurFenetre() / 14, 6.5* hauteurFenetre() / 12);
     //
     couleurCourante(20, 20, 20);
     rectangle(1.5 * largeurFenetre() / 14, 5 * hauteurFenetre() / 12, 6 * largeurFenetre() / 14, 3.5 * hauteurFenetre() / 12);
@@ -77,15 +77,15 @@ void Credits()
 
 int AffichePage(int choixpage)
 {
-    static DonneesImageRGB *image = NULL;
+    // static DonneesImageRGB *image = NULL;
 
     if (choixpage == 0)
     {
         accueil();
-        if (image != NULL)
-        {
-            ecrisImage((largeurFenetre() - image->largeurImage), hauteurFenetre() - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
-        }
+        // if (image != NULL)
+        // {
+        //     ecrisImage((largeurFenetre() - image->largeurImage), hauteurFenetre() - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
+        // }
     }
     if (choixpage == 1)
     {
