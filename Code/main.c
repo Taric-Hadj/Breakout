@@ -15,7 +15,7 @@ void gestionEvenement(EvenementGfx evenement)
     {
     case Initialisation:
         demandeTemporisation(20);
-        image = lisBMPRGB("./images/pacman_logo.bmp");
+        image = lisBMPRGB("./images/pacman.bmp");
         break;
 
     case Temporisation:
@@ -23,7 +23,7 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Affichage:
-       AffichePage(choixpage);
+        AffichePage(choixpage);
 
         break;
 
@@ -55,8 +55,13 @@ void gestionEvenement(EvenementGfx evenement)
             if (choixpage == 2)
             {
                 if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
-                {
+                {//credits
                     choixpage = 4;
+                    if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (2.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 4 * hauteurFenetre() / 12))
+                    //retour
+                    {
+
+                    }
                 }
             }
             if (choixpage == 0)
