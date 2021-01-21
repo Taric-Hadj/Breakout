@@ -15,7 +15,7 @@ void gestionEvenement(EvenementGfx evenement)
     {
     case Initialisation:
         demandeTemporisation(20);
-        image = lisBMPRGB("./images/pacman2.bmp");
+        image = lisBMPRGB("./images/pacman5.bmp");
         break;
 
     case Temporisation:
