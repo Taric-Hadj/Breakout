@@ -64,11 +64,11 @@ void pageScore()
 void Credits()
 {
     couleurCourante(255, 255, 0);
-    afficheChaine("Taric", 60, 5.5 * largeurFenetre() / 14, 10 * hauteurFenetre() / 12);
-    afficheChaine("Yannis", 60, 5.5 * largeurFenetre() / 14, 8 * hauteurFenetre() / 12);
-    afficheChaine("Thibault", 60, 5.5 * largeurFenetre() / 14, 6 * hauteurFenetre() / 12);
-    afficheChaine("Louise", 60, 5.5 * largeurFenetre() / 14, 4 * hauteurFenetre() / 12);
-    afficheChaine("Fanny", 60, 5.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+    afficheChaine("Taric", 40, 5.5 * largeurFenetre() / 14, 14 * hauteurFenetre() / 15);
+    afficheChaine("Yannis", 40, 5.5 * largeurFenetre() / 14, 12.5 * hauteurFenetre() / 15);
+    afficheChaine("Thibault", 40, 5.5 * largeurFenetre() / 14, 11 * hauteurFenetre() / 15);
+    afficheChaine("Louise", 40, 5.5 * largeurFenetre() / 14, 9.5 * hauteurFenetre() / 15);
+    afficheChaine("Fanny", 40, 5.5 * largeurFenetre() / 14, 8 * hauteurFenetre() / 15);
     couleurCourante(20, 20, 20);
     rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
     couleurCourante(255, 255, 0);
@@ -81,11 +81,13 @@ int AffichePage(int choixpage)
 
     if (choixpage == 0)
     {
+            static DonneesImageRGB *image = NULL;
         accueil();
-        // if (image != NULL)
-        // {
-        //     ecrisImage((largeurFenetre() - image->largeurImage), hauteurFenetre() - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
-        // }
+         image = lisBMPRGB("./images/pacman5.bmp");
+        if (image != NULL)
+         {
+             ecrisImage((9*largeurFenetre()/14 - image->largeurImage), 10*hauteurFenetre()/12 - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
+        }
     }
     if (choixpage == 1)
     {
@@ -101,7 +103,13 @@ int AffichePage(int choixpage)
     }
     if (choixpage == 4)
     {
+        static DonneesImageRGB *image = NULL;
         Credits();
+        image = lisBMPRGB("./images/isen2.bmp");
+        if (image != NULL)
+         {
+             ecrisImage((10*largeurFenetre()/14 - image->largeurImage), hauteurFenetre()/2 - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
+        }
     }
     return choixpage;
 }

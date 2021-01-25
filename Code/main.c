@@ -10,12 +10,12 @@ int main(int argc, char **argv)
 void gestionEvenement(EvenementGfx evenement)
 {
     static int choixpage = 0;
-    static DonneesImageRGB *image = NULL;
+    
     switch (evenement)
     {
     case Initialisation:
         demandeTemporisation(20);
-        image = lisBMPRGB("./images/pacman5.bmp");
+       
         break;
 
     case Temporisation:
@@ -24,10 +24,7 @@ void gestionEvenement(EvenementGfx evenement)
 
     case Affichage:
       choixpage =  AffichePage(choixpage);
-      if (image != NULL)
-         {
-             ecrisImage((9*largeurFenetre()/14 - image->largeurImage), 10*hauteurFenetre()/12 - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
-        }
+      
 
         break;
 
