@@ -8,14 +8,18 @@
 #include "tpGfx/BmpLib.h"
 #include "tpGfx/ESLib.h"
 #define LargeurFenetre 600
-#define HauteurFenetre 1000
+#define HauteurFenetre 800
 #define FANTOME 4
 
+
 void gestionEvenement(EvenementGfx evenement);
-int AffichePage(int choixpage);
-int Clique(int choixpage);
+void AffichePage(int *choixpage, int *zone, char text[]);
+void Clique(int *choixpage, int *zone);
 void accueil();
 void pageJeu();
+void pageJeu1();
 void pageOption();
 void pageScore();
 void Credits();
+void ecrire(char text[12]);
+

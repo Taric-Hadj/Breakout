@@ -9,7 +9,11 @@ int main(int argc, char **argv)
 }
 void gestionEvenement(EvenementGfx evenement)
 {
-    static int choixpage = 0;
+    char text[12]="";
+    static int z=0;
+    int *zone = &z;
+    static int page = 0;
+    int *choixpage = &page;
     
     switch (evenement)
     {
@@ -23,26 +27,32 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Affichage:
-      choixpage =  AffichePage(choixpage);
-      
-
+    AffichePage(choixpage, zone, text);
+    
         break;
 
     case Clavier:
-        switch (caractereClavier())
-        {
-        case 'q':
-        case 'Q':
-            termineBoucleEvenements();
-            break;
-        }
+
+    if(*choixpage == 1){
+        
+
+    if(*zone==1){
+        ecrire(text);
+        printf("test");
+			}
+
+    }
+
         break;
 
     case ClavierSpecial:
+
+		printf("ASCII %d\n", toucheClavier());
+
         break;
 
     case BoutonSouris:
-      choixpage =  Clique(choixpage);
+    Clique(choixpage, zone);
         break;
 
     case Souris:
