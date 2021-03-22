@@ -1,4 +1,4 @@
-#include "fonction.h"
+#include "./Regulateur/regulateur.h"
 
 int main(int argc, char **argv)
 {
@@ -9,17 +9,13 @@ int main(int argc, char **argv)
 }
 void gestionEvenement(EvenementGfx evenement)
 {
-    char text[12]="";
-    static int z=0;
-    int *zone = &z;
-    static int page = 0;
-    int *choixpage = &page;
-    
+    static Donnees donnees;
+
     switch (evenement)
     {
     case Initialisation:
+        donnees.page = 1;
         demandeTemporisation(20);
-       
         break;
 
     case Temporisation:
@@ -27,32 +23,31 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Affichage:
-    AffichePage(choixpage, zone, text);
-    
+        effaceFenetre(0, 0, 0);
+        choix(&donnees, tAffichage());
         break;
 
     case Clavier:
 
-    if(*choixpage == 1){
-        
+        // if(*choixpage == 1){
 
-    if(*zone==1){
-        ecrire(text);
-        printf("test");
-			}
+        // if(*zone==1){
+        //     ecrire(text);
+        //     printf("test");
+        // 		}
 
-    }
+        // }
 
         break;
 
     case ClavierSpecial:
 
-		printf("ASCII %d\n", toucheClavier());
+        printf("ASCII %d\n", toucheClavier());
 
         break;
 
     case BoutonSouris:
-    Clique(choixpage, zone);
+        choix(&donnees, tClique());
         break;
 
     case Souris:
