@@ -63,7 +63,7 @@ void CliqueMenu(Donnees *donnees)
             //options
             if ((1.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 6 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
             {
-                donnees->page = 3;
+                donnees->page = 4;
             }
         }
     }

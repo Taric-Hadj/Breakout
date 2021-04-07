@@ -31,13 +31,12 @@ void choix(Donnees *donnees, Choix type)
 }
 
 Choix tAffichage() { return (Choix){
-    accueil, pageJeu, pageJeu1
-    // pageOption,
+    accueil, pageJeu, pageJeu1, pageOption, pageCredits
     // pageScore,
-    // Credits,
+    
 }; }
 
 Choix tTemporisation() { return (Choix){}; }
 
 Choix tClique() { return (Choix){
-    CliqueMenu, CliqueJeu, CliqueJeu}; }
+    CliqueMenu, CliqueJeu, CliqueJeu , CliqueOption, CliqueCredits}; }

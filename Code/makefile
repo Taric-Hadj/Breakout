@@ -2,8 +2,8 @@ run: main
 	rm *.o
 	@./main
 
-main: main.o fonction.o regulateur.o menu.o jeu.o ./tpGfx/libisentlib.a
-	gcc -Wall main.o fonction.o  regulateur.o menu.o jeu.o -o main ./tpGfx/libisentlib.a -lm -lglut -lGL -lX11
+main: main.o fonction.o regulateur.o menu.o jeu.o option.o Credits.o ./tpGfx/libisentlib.a
+	gcc -Wall main.o fonction.o  regulateur.o menu.o jeu.o option.o Credits.o -o main ./tpGfx/libisentlib.a -lm -lglut -lGL -lX11
 
 main.o: main.c 
 	gcc -g -Wall -c main.c
@@ -19,6 +19,12 @@ menu.o : ./Menu/menu.c ./Menu/menu.h
 	
 jeu.o : ./Jeu/jeu.c ./Jeu/jeu.h
 	gcc -g -Wall -c ./Jeu/jeu.c
+
+option.o : ./option/option.c ./option/option.h
+	gcc -g -Wall -c ./option/option.c
+
+Credits.o : ./Credits/Credits.c ./Credits/Credits.h
+	gcc -g -Wall -c ./Credits/Credits.c
 
 
 

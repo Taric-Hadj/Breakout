@@ -1,5 +1,8 @@
 #include "../Menu/menu.h"
 #include "../Jeu/jeu.h"
+#include "../option/option.h"
+#include "../Credits/Credits.h"
+
 
 typedef struct
 {
