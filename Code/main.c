@@ -16,6 +16,7 @@ void gestionEvenement(EvenementGfx evenement)
     case Initialisation:
         donnees.page = 1;
         demandeTemporisation(20);
+       
         break;
 
     case Temporisation:

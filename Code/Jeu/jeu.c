@@ -42,9 +42,9 @@ void CliqueJeu(Donnees *donnees)
 
         if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 9.5 * largeurFenetre() / 14) && (1.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 3 * hauteurFenetre() / 12))
         {
-            
+
             donnees->page = 3;
-            Map(donnees->tab,"map.txt");
+            Map(donnees->tab);
 
         } // pagejeu1
 
@@ -59,47 +59,27 @@ void CliqueJeu(Donnees *donnees)
     }
 }
 
+void Map(int tab[25][45])
 
-// void Map()
-// {
-//     char tab[45][25];
-//     char a;
-//     FILE *map = fopen("map.txt", "r");
-//     if(map!=NULL){
-//             fscanf(map,"%c",&a);
-//             printf("%c",a);
-//     fclose(map);
-//     }
-//     else{ 
-//     printf("BIG TEST \n");
-//     }
-    // for (int i = 0; i < 25; i++)
-    // {
-    //     for (int j = 0; j < 45; j++)
-    //     {
-    //         // tab[i][j] = fgetc(map);
-            // printf("%c",fgetc(map));
-    //     }
-    //     // fseek(map, SEEK_CUR, 1);
-    // }
-    // for (int i = 0; i < 25; i++)
-    // {
-    // printf("test\n");
-    //     for (int j = 0; j < 45; j++)
-    //     {
-    //         printf("%c", tab[i][j]);
-    //     }
-    //     printf("\n");
-    // }
-    void Map(char coef[45][25], char *map) {
-    FILE *ptrfile = fopen(map, "r");
-    char init;
-    for (int i = 0; i < 45; i++) {
-        for (int j = 0; j < 25; j++) {
-            fscanf(ptrfile, "%c ", &init);
-            coef[i][j] = init;
+{
+    FILE *map = fopen("../Fichier/map.txt", "r");
+    if (map != NULL)
+    {
+        for (int i = 0; i < 25; i++)
+        {
+            for (int j = 0; j < 45; j++)
+            {
+                tab[i][j] = fgetc(map) - 48;
+            }
+        }
+        for (int i = 0; i < 25; i++)
+        {
+            for (int j = 0; j < 45; j++)
+            {
+                printf("%d", tab[i][j]);
+            }
+            printf("\n");
         }
     }
-    fclose(ptrfile);
+            printf("mon vié\n");
 }
-
