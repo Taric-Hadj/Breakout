@@ -25,6 +25,7 @@ typedef struct
     char text[12];
     int z;
     int page;
+    char tab[45][25];
 } Donnees;
 
 #endif

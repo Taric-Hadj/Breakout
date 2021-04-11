@@ -44,7 +44,7 @@ void CliqueMenu(Donnees *donnees)
 
         //jouer
         
-            if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 10 * largeurFenetre() / 14) && (6.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 8 * hauteurFenetre() / 12))
+            if ((4.5 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 10 * largeurFenetre() / 14) && (6 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 7.5 * hauteurFenetre() / 12))
             {
                 donnees->page = 2;
             }

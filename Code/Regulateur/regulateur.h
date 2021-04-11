@@ -2,6 +2,7 @@
 #include "../Jeu/jeu.h"
 #include "../option/option.h"
 #include "../Credits/Credits.h"
+#include "../Jeu1/Jeu1.h"
 
 
 typedef struct

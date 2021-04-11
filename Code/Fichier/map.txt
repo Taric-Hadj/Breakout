@@ -1,0 +1,25 @@
+ooooooooooooooooooooooooooooooooooooooooooooo
+o . . . . . . . . . . o . . . . . . . . . . o
+o * ooooo . ooooooo . o . ooooooo . ooooo * o
+o . ooooo . ooooooo . o . ooooooo . ooooo . o
+o . . . . . . . . . . . . . . . . . . . . . o
+o . ooooo . o . ooooooooooooo . o . ooooo . o
+o . . . . . o . ooooooooooooo . o . . . . . o
+ooooooooo . o . . . . o . . . . o . ooooooooo
+ooooooooo . ooooooo   o   ooooooo . ooooooooo
+ooooooooo . o                   o . ooooooooo 
+ooooooooo . o   ooooo   ooooo   o . ooooooooo 
+          .     o F F   F F o     .
+ooooooooo . o   ooooooooooooo   o . ooooooooo 
+ooooooooo . o                   o . ooooooooo 
+ooooooooo . o   ooooooooooooo   o . ooooooooo
+ooooooooo . o   ooooooooooooo   o . ooooooooo
+o . . . . . . . . . . o . . . . . . . . . . o
+o . ooooo . ooooooo . o . ooooooo . ooooo . o
+o * . . o . . . . . . C . . . . . . o . . * o
+ooooo . o . ooooooooooooooooooooo . o . ooooo
+o . . . . . o . . . . o . . . . o . . . . . o
+o . ooooooooooooooo . o . ooooooooooooooo . o
+o . ooooooooooooooo . o . ooooooooooooooo . o
+o . . . . . . . . . . . . . . . . . . . . . o
+ooooooooooooooooooooooooooooooooooooooooooooo
