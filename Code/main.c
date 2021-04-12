@@ -15,8 +15,10 @@ void gestionEvenement(EvenementGfx evenement)
     {
     case Initialisation:
         donnees.page = 1;
+        donnees.pacman.x = 11;
+        donnees.pacman.y = 18;
         demandeTemporisation(20);
-       
+
         break;
 
     case Temporisation:
@@ -29,7 +31,7 @@ void gestionEvenement(EvenementGfx evenement)
         break;
 
     case Clavier:
-
+        choix(&donnees, tClavier());
         // if(*choixpage == 1){
 
         // if(*zone==1){

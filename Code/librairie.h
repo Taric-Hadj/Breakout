@@ -22,10 +22,17 @@ typedef struct
 
 typedef struct
 {
+    int x;
+    int y;
+} Pacman;
+
+typedef struct
+{
     char text[12];
     int z;
     int page;
-    int tab[25][45];
+    char tab[25][23];
+    Pacman pacman;
 } Donnees;
 
 #endif

@@ -16,5 +16,7 @@ typedef struct
 } Choix;
 
 void choix(Donnees *donnees, Choix type);
+void F_NULL();
 Choix tAffichage();
 Choix tClique();
+Choix tClavier();

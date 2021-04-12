@@ -1,5 +1,5 @@
 #include "jeu.h"
-#include "../Jeu1/Jeu1.h"
+//#include "../Jeu1/Jeu1.h"
 
 void pageJeu(Donnees *donnees)
 {
@@ -28,7 +28,10 @@ void pageJeu(Donnees *donnees)
 }
 void pageJeu1(Donnees *donnees)
 {
-
+    couleurCourante(255, 255, 0);
+    epaisseurDeTrait(40);
+    cercle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, 10);
+    epaisseurDeTrait(3);
     couleurCourante(20, 20, 20);
     rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
     couleurCourante(255, 255, 0);
@@ -59,27 +62,51 @@ void CliqueJeu(Donnees *donnees)
     }
 }
 
-void Map(int tab[25][45])
-
+void ClavierJeu(Donnees *donnees)
 {
-    FILE *map = fopen("../Fichier/map.txt", "r");
+    touches(donnees->tab, &donnees->pacman);
+}
+
+void Map(char tab[25][23])
+{
+    FILE *map = fopen("./Fichier/map.txt", "r");
     if (map != NULL)
     {
         for (int i = 0; i < 25; i++)
         {
-            for (int j = 0; j < 45; j++)
+            for (int j = 0; j < 23; j++)
             {
-                tab[i][j] = fgetc(map) - 48;
+                tab[i][j] = fgetc(map);
             }
+            fgetc(map);
         }
-        for (int i = 0; i < 25; i++)
-        {
-            for (int j = 0; j < 45; j++)
-            {
-                printf("%d", tab[i][j]);
-            }
-            printf("\n");
-        }
+        fclose(map);
     }
-            printf("mon vié\n");
+}
+
+void touches(char tab[25][23], Pacman *pacman)
+{
+    switch (caractereClavier())
+    {
+    case 'z':
+    case 'Z':
+        if (tab[pacman->y - 1][pacman->x] != '0')
+            pacman->y--;
+        break;
+    case 'q':
+    case 'Q':
+        if (tab[pacman->y][pacman->x - 1] != '0')
+            pacman->x--;
+        break;
+    case 's':
+    case 'S':
+        if (tab[pacman->y + 1][pacman->x] != '0')
+            pacman->y++;
+        break;
+    case 'd':
+    case 'D':
+        if (tab[pacman->y][pacman->x + 1] != '0')
+            pacman->x++;
+        break;
+    }
 }

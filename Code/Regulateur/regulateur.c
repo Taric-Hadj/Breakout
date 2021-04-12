@@ -30,13 +30,19 @@ void choix(Donnees *donnees, Choix type)
     }
 }
 
+void F_NULL(){}
+
 Choix tAffichage() { return (Choix){
     accueil, pageJeu, pageJeu1, pageOption, pageCredits
     // pageScore,
     
 }; }
 
-Choix tTemporisation() { return (Choix){}; }
+//Choix tTemporisation() { return (Choix){}; }
 
 Choix tClique() { return (Choix){
     CliqueMenu, CliqueJeu, CliqueJeu , CliqueOption, CliqueCredits}; }
+
+Choix tClavier() { return (Choix){
+    F_NULL, F_NULL, ClavierJeu , F_NULL, F_NULL}; }
+
