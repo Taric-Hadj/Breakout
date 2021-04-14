@@ -28,6 +28,7 @@ void pageJeu(Donnees *donnees)
 }
 void pageJeu1(Donnees *donnees)
 {
+    affichageMap(donnees->tab,largeurFenetre() / 8,6 * hauteurFenetre() / 7);
     couleurCourante(255, 255, 0);
     epaisseurDeTrait(40);
     cercle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, 10);
@@ -95,8 +96,10 @@ void touches(char tab[25][23], Pacman *pacman)
         break;
     case 'q':
     case 'Q':
-        if (tab[pacman->y][pacman->x - 1] != '0')
+        if (tab[pacman->y][pacman->x - 1] != '0'&& pacman->x != 22)
             pacman->x--;
+        else if(pacman->x==0)
+        pacman->x=22;
         break;
     case 's':
     case 'S':
@@ -105,8 +108,29 @@ void touches(char tab[25][23], Pacman *pacman)
         break;
     case 'd':
     case 'D':
-        if (tab[pacman->y][pacman->x + 1] != '0')
+        if (tab[pacman->y][pacman->x + 1] != '0' && pacman->x != 22)
             pacman->x++;
+        else if(pacman->x==22)
+        pacman->x=0;
         break;
+    }
+}
+
+void affichageMap(char tab[25][23],int x, int y)
+{
+    for (int i = 0; i < 25; i++)
+    {
+        for (int j = 0; j < 23; j++)
+        {
+            if(tab[i][j]=='0'){
+                couleurCourante(0,0,255);
+                rectangle(x+20*j-10,y-20*i-10,x+20*j+10,y-20*i+10);
+            }
+            if(tab[i][j]=='.'){
+                epaisseurDeTrait(4);
+                couleurCourante(255,255,0);
+                point(x+20*j,y-20*i);
+            }
+        }
     }
 }

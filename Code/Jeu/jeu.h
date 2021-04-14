@@ -6,3 +6,4 @@ void pageJeu(Donnees *donnees);
 void pageJeu1(Donnees *donnees);
 void Map(char tab[25][23]);
 void touches(char tab[25][23], Pacman *pacman);
+void affichageMap(char tab[25][23],int x, int y);
