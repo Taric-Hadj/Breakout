@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "./tpGfx/GfxLib.h"
-#include "./tpGfx/BmpLib.h"
-#include "./tpGfx/ESLib.h"
+#include "../tpGfx/GfxLib.h"
+#include "../tpGfx/BmpLib.h"
+#include "../tpGfx/ESLib.h"
 #define LargeurFenetre 1000
 #define HauteurFenetre 800
 #define absBar1 1.5 * largeurFenetre() / 14

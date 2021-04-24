@@ -14,6 +14,7 @@ void gestionEvenement(EvenementGfx evenement)
     switch (evenement)
     {
     case Initialisation:
+        donnees.z=false;
         donnees.page = 1;
         donnees.pacman.x = 11;
         donnees.pacman.y = 18;

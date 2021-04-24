@@ -22,6 +22,10 @@ void pageJeu(Donnees *donnees)
     couleurCourante(20, 20, 20);
     rectangle(2 * largeurFenetre() / 14, 5 * hauteurFenetre() / 12, 12.5 * largeurFenetre() / 14, 3.5 * hauteurFenetre() / 12);
     couleurCourante(20, 20, 20);
+    epaisseurDeTrait(2);
+    couleurCourante(255, 255, 255);
+    afficheChaine(donnees->text, 40, 3 * largeurFenetre() / 14, 9 * hauteurFenetre() / 24);
+    couleurCourante(20, 20, 20);
     rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
     couleurCourante(255, 255, 0);
     afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
@@ -56,9 +60,18 @@ void CliqueJeu(Donnees *donnees)
         { //retour
             donnees->page = 1;
         }
+    }
+}
+
+void CliqueJeu1(Donnees *donnees)
+{
+    if (etatBoutonSouris() == GaucheAppuye)
+    {
+
         if ((2 * largeurFenetre() / 14 <= abscisseSouris()) && (abscisseSouris() <= 12.5 * largeurFenetre() / 14) && (3.5 * hauteurFenetre() / 12 <= ordonneeSouris()) && (ordonneeSouris() <= 5 * hauteurFenetre() / 12))
         {
-            donnees->z = 1;
+            donnees->z = (donnees->z)?false:true;
+            printf("%d", donnees->z);
         } //clic zone grise pour activer l'écriture du text
     }
 }
@@ -133,4 +146,33 @@ void affichageMap(char tab[25][23],int x, int y)
             }
         }
     }
+}
+void ecrire(char text[12])
+{
+    char a[12]="";
+    if((caractereClavier()==8) && (strcmp(text,"")!=0))
+    {
+        strncpy(a, text, strlen(text)-1);
+        strcat(a,"\0");
+        strcpy(text,a);
+    }
+    else if (caractereClavier() > 31)
+    {
+        for(int i=0; i<11; i++)
+        {
+            if(text[i]=='\0')
+            {
+                text[i]=caractereClavier();
+                text[i+1]='\0';
+                break;
+            }
+        }
+    }
+}
+void clavier(Donnees *donnees){
+    if(donnees->z){
+        ecrire(donnees->text);
+    }
+
+
 }

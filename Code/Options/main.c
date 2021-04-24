@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "./tpGfx/GfxLib.h"
-#include "./tpGfx/BmpLib.h"
+#include "../tpGfx/GfxLib.h"
+#include "../tpGfx/BmpLib.h"
 #include "options.h"
 
 // Largeur et hauteur par defaut d'une image correspondant a nos criteres
