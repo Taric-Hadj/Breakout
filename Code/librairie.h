@@ -24,12 +24,13 @@ typedef struct
 {
     int x;
     int y;
+    int orientation;
 } Pacman;
 
 typedef struct
 {
     char text[12];
-    int z;
+    bool z;
     int page;
     char tab[25][23];
     Pacman pacman;
