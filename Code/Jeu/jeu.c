@@ -193,8 +193,7 @@ void affichageMap(char tab[25][23], int x, int y)
         }
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 void MangeGrain(char tab[25][23], Pacman pacman)
 {
@@ -224,9 +223,7 @@ void TempoJeu(Donnees *donnees)
 {
     MangeGrain(donnees->tab, donnees->pacman);
 }
-=======
-=======
->>>>>>> 88b70d139860019dac724c7b03cfa1c49b156a75
+
 void ecrire(char text[12])
 {
     char a[12]="";
@@ -255,9 +252,6 @@ void clavier(Donnees *donnees){
     }
 
 
-<<<<<<< HEAD
 }
->>>>>>> 88b70d139860019dac724c7b03cfa1c49b156a75
-=======
-}
->>>>>>> 88b70d139860019dac724c7b03cfa1c49b156a75
+
+
