@@ -34,13 +34,34 @@ void pageJeu1(Donnees *donnees)
 {
     affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
     couleurCourante(255, 255, 0);
-    epaisseurDeTrait(40);
+    epaisseurDeTrait(2);
     cercle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, 8);
-    epaisseurDeTrait(3);
+     //monstre 1 vert
+    couleurCourante(0, 128, 0);
+    cercle(largeurFenetre() / 8 + 20 * donnees->monstre[0].x, 6 * hauteurFenetre() / 7 - 20 * donnees->monstre[0].y, 8);
+    
+
+    //monstre 2 violet
+    couleurCourante(238,130,238);
+    cercle(largeurFenetre() / 8 + 20 * donnees->monstre[1].x, 6 * hauteurFenetre() / 7 - 20 * donnees->monstre[1].y, 8);
+    
+
+    //monstre 3 orange
+    couleurCourante(255,165,0);
+    cercle(largeurFenetre() / 8 + 20 * donnees->monstre[2].x, 6 * hauteurFenetre() / 7 - 20 * donnees->monstre[2].y, 8);
+    
+
+    //monstre 4 blanc
+    couleurCourante(255, 255, 255);
+    cercle(largeurFenetre() / 8 + 20 * donnees->monstre[3].x, 6 * hauteurFenetre() / 7 - 20 * donnees->monstre[3].y, 8);
+    
+
+    //bouton retour
     couleurCourante(20, 20, 20);
     rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
     couleurCourante(255, 255, 0);
     afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+
     static int i = 0;
     i++;
     if (i < 15)
@@ -195,6 +216,7 @@ void affichageMap(char tab[25][23], int x, int y)
                 couleurCourante(238,18,98);
                 cercle(x + 20 *j, y- 20 * i,6);
             }
+            
 
         }
     }

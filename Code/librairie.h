@@ -31,10 +31,17 @@ typedef struct
 
 typedef struct
 {
+    int x;
+    int y;
+} Monstre;
+
+typedef struct
+{
     char text[12];
     bool z;
     int page;
     char tab[25][23];
     Pacman pacman;
+    Monstre monstre[4];
 } Donnees;
 #endif
