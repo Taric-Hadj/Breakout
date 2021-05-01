@@ -26,6 +26,7 @@ typedef struct
     int x;
     int y;
     int orientation;
+    char caractere;
 } Pacman;
 
 typedef struct

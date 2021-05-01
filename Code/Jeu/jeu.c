@@ -35,7 +35,7 @@ void pageJeu1(Donnees *donnees)
     affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
     couleurCourante(255, 255, 0);
     epaisseurDeTrait(40);
-    cercle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, 8);
+    cercle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, 8);
     epaisseurDeTrait(3);
     couleurCourante(20, 20, 20);
     rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
@@ -47,19 +47,19 @@ void pageJeu1(Donnees *donnees)
     {
         if(donnees->pacman.orientation == 4){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x + 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9 * tanf(M_PI / 6), largeurFenetre() / 8 + 20 * donnees->pacman.x + 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9 * tanf(M_PI / 6));
+        triangle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, largeurFenetre() / 8 + donnees->pacman.x + 9, 6 * hauteurFenetre() / 7 - donnees->pacman.y + 9 * tanf(M_PI / 6), largeurFenetre() / 8 + donnees->pacman.x + 9, 6 * hauteurFenetre() / 7 - donnees->pacman.y - 9 * tanf(M_PI / 6));
         }
         else if(donnees->pacman.orientation == 2){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9 * tanf(M_PI / 6), largeurFenetre() / 8 + 20 * donnees->pacman.x - 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9 * tanf(M_PI / 6));
+        triangle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, largeurFenetre() / 8 + donnees->pacman.x - 9, 6 * hauteurFenetre() / 7 - donnees->pacman.y + 9 * tanf(M_PI / 6), largeurFenetre() / 8 + donnees->pacman.x - 9, 6 * hauteurFenetre() / 7 - donnees->pacman.y - 9 * tanf(M_PI / 6));
         }
         else if(donnees->pacman.orientation == 1){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 9 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9, largeurFenetre() / 8 + 20 * donnees->pacman.x + 9* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9);
+        triangle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, largeurFenetre() / 8 + donnees->pacman.x - 9 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - donnees->pacman.y + 9, largeurFenetre() / 8 + donnees->pacman.x + 9* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - donnees->pacman.y + 9);
         }
         else if(donnees->pacman.orientation == 3){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 9 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9, largeurFenetre() / 8 + 20 * donnees->pacman.x + 9* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9);
+        triangle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, largeurFenetre() / 8 + donnees->pacman.x - 9 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - donnees->pacman.y - 9, largeurFenetre() / 8 + donnees->pacman.x + 9* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - donnees->pacman.y - 9);
         }
 
     }
@@ -102,7 +102,7 @@ void CliqueJeu1(Donnees *donnees)
 
 void ClavierJeu(Donnees *donnees)
 {
-    touches(donnees->tab, &donnees->pacman);
+    touches(&donnees->pacman);
 }
 
 void Map(char tab[25][23])
@@ -122,14 +122,13 @@ void Map(char tab[25][23])
         fclose(map);
     }
 }
-
-void touches(char tab[25][23], Pacman *pacman)
+void avancePacman(char tab[25][23], Pacman *pacman)
 {
-    switch (caractereClavier())
+    switch (pacman->caractere)
     {
     case 'z':
     case 'Z':
-        if (tab[pacman->y - 1][pacman->x] != '0')
+        if (tab[(int)floor((pacman->y-1)/20)][(int)floor((pacman->x)/20)] != '0' && tab[(int)floor((pacman->y-1)/20)][(int)floor((pacman->x+16)/20)] != '0')
         {
             pacman->y--;
             pacman->orientation = 1;
@@ -137,35 +136,41 @@ void touches(char tab[25][23], Pacman *pacman)
         break;
     case 'q':
     case 'Q':
-        if (tab[pacman->y][pacman->x - 1] != '0' && pacman->x != 23)
+        if (tab[(int)floor((pacman->y)/20)][(int)floor((pacman->x-1)/20)] != '0' && tab[(int)floor((pacman->y+16)/20)][(int)floor((pacman->x-1)/20)] != '0' && pacman->x != 0)
         {
             pacman->x--;
             pacman->orientation = 2;
         }
         else if (pacman->x == 0)
         {
-            pacman->x = 22;
+            pacman->x = 440;
             pacman->orientation = 2;
         }
         break;
     case 's':
     case 'S':
-        if (tab[pacman->y + 1][pacman->x] != '0'){
+        if (tab[(int)floor((pacman->y)/20)+1][(int)floor((pacman->x)/20)] != '0' && tab[(int)floor((pacman->y)/20)+1][(int)floor((pacman->x+16)/20)] != '0'){
             pacman->y++;
             pacman->orientation=3;
         }
         break;
     case 'd':
     case 'D':
-        if (tab[pacman->y][pacman->x + 1] != '0' && pacman->x != 22){
+        if (tab[(int)floor((pacman->y)/20)][(int)floor((pacman->x)/20)+1] != '0' && tab[(int)floor((pacman->y+16)/20)][(int)floor((pacman->x)/20)+1] != '0' && pacman->x != 440){
             pacman->x++;
             pacman->orientation=4;
         }
-        else if (pacman->x == 22){
+        else if (pacman->x == 440){
             pacman->x = 0;
             pacman->orientation=4;
         }
         break;
+    }
+}
+void touches(Pacman *pacman)
+{
+    if(caractereClavier() == 'z' || caractereClavier() == 'Z' || caractereClavier() == 'q' || caractereClavier() == 'Q'|| caractereClavier() == 's' || caractereClavier() == 'S'|| caractereClavier() == 'd' || caractereClavier() == 'D' ){
+        pacman->caractere = caractereClavier();
     }
 }
 
@@ -178,7 +183,7 @@ void affichageMap(char tab[25][23], int x, int y)
             if (tab[i][j] == '0')
             {
                 couleurCourante(0, 0, 255);
-                rectangle(x + 20 * j - 10, y - 20 * i - 10, x + 20 * j + 10, y - 20 * i + 10);
+                rectangle(x + 20 * j-10, y - 20 * i-10, x + 20 * j + 10, y - 20 * i + 10);
             }
             if (tab[i][j] == '.')
             {
@@ -209,19 +214,20 @@ void MangeGrain(char tab[25][23], Pacman pacman)
     //         }
     //     }
     // }
-    if (tab[pacman.y][pacman.x] == '.')
+    if (tab[(int)floor(pacman.y/20)][(int)floor(pacman.x/20)] == '.')
     {
-        tab[pacman.y][pacman.x] = ' ';
+        tab[(int)floor(pacman.y/20)][(int)floor(pacman.x/20)] = ' ';
     }
-    if (tab[pacman.y][pacman.x] == '@')
+    if (tab[(int)floor(pacman.y/20)][(int)floor(pacman.x/20)] == '@')
     {
-        tab[pacman.y][pacman.x] = ' ';
+        tab[(int)floor(pacman.y/20)][(int)floor(pacman.x/20)] = ' ';
     }
 
 }
 
 void TempoJeu(Donnees *donnees)
 {
+    avancePacman(donnees->tab, &donnees->pacman);
     MangeGrain(donnees->tab, donnees->pacman);
 }
 

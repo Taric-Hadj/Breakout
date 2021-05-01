@@ -15,8 +15,8 @@ void gestionEvenement(EvenementGfx evenement)
     {
     case Initialisation:
         donnees.page = 1;
-        donnees.pacman.x = 11;
-        donnees.pacman.y = 18;
+        donnees.pacman.x = 220;
+        donnees.pacman.y = 360;
         demandeTemporisation(20);
 
         break;
