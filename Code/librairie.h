@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <math.h>
+#include <time.h>
 #include <unistd.h>
 #include "tpGfx/GfxLib.h"
 #include "tpGfx/BmpLib.h"
@@ -33,6 +34,7 @@ typedef struct
 {
     int x;
     int y;
+    int orientation;
 } Monstre;
 
 typedef struct
@@ -43,5 +45,6 @@ typedef struct
     char tab[25][23];
     Pacman pacman;
     Monstre monstre[4];
+    int score;
 } Donnees;
 #endif

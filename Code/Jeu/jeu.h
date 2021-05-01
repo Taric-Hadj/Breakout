@@ -7,13 +7,15 @@ void pageJeu1(Donnees *donnees);
 void Map(char tab[25][23]);
 void touches(Pacman *pacman);
 void affichageMap(char tab[25][23],int x, int y);
-void MangeGrain(char tab[25][23], Pacman pacman);
+void MangeGrain(char tab[25][23], Pacman pacman, int *score);
 void TempoJeu(Donnees *donnees);
 void clavier(Donnees *donnees);
 void CliqueJeu1(Donnees *donnees);
 void clavier(Donnees *donnees);
 void CliqueJeu1(Donnees *donnees);
 void avancePacman(char tab[25][23], Pacman *pacman);
+void fantome(int x, int y, int r);
+void avanceFantomes(char tab[25][23], Monstre *fantomes);
 //void ecrire(char text[12]);
 // #include "../librairie.h"
 // void CliqueJeu(Donnees *donnees);
