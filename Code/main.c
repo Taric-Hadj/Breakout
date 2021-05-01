@@ -23,6 +23,8 @@ void gestionEvenement(EvenementGfx evenement)
 
     case Temporisation:
         rafraichisFenetre();
+        choix(&donnees, tTempo());
+
         break;
 
     case Affichage:
