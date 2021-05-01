@@ -47,19 +47,19 @@ void pageJeu1(Donnees *donnees)
     {
         if(donnees->pacman.orientation == 4){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x + 10, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 10 * tanf(M_PI / 6), largeurFenetre() / 8 + 20 * donnees->pacman.x + 10, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 10 * tanf(M_PI / 6));
+        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x + 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9 * tanf(M_PI / 6), largeurFenetre() / 8 + 20 * donnees->pacman.x + 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9 * tanf(M_PI / 6));
         }
         else if(donnees->pacman.orientation == 2){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 10, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 10 * tanf(M_PI / 6), largeurFenetre() / 8 + 20 * donnees->pacman.x - 10, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 10 * tanf(M_PI / 6));
+        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9 * tanf(M_PI / 6), largeurFenetre() / 8 + 20 * donnees->pacman.x - 9, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9 * tanf(M_PI / 6));
         }
         else if(donnees->pacman.orientation == 1){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 10 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 10, largeurFenetre() / 8 + 20 * donnees->pacman.x + 10* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 10);
+        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 9 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9, largeurFenetre() / 8 + 20 * donnees->pacman.x + 9* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y + 9);
         }
         else if(donnees->pacman.orientation == 3){
         couleurCourante(0, 0, 0);
-        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 10 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 10, largeurFenetre() / 8 + 20 * donnees->pacman.x + 10* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 10);
+        triangle(largeurFenetre() / 8 + 20 * donnees->pacman.x, 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y, largeurFenetre() / 8 + 20 * donnees->pacman.x - 9 * tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9, largeurFenetre() / 8 + 20 * donnees->pacman.x + 9* tanf(M_PI/6), 6 * hauteurFenetre() / 7 - 20 * donnees->pacman.y - 9);
         }
 
     }
