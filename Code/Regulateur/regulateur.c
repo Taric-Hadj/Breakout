@@ -38,14 +38,11 @@ Choix tAffichage() { return (Choix){
     
 }; }
 
-//Choix tTemporisation() { return (Choix){F_NULL,clavier,F_NULL,F_NULL,F_NULL}; }
+//Choix tTemporisation() { return (Choix){}; }
 
 Choix tClique() { return (Choix){
-    CliqueMenu, CliqueJeu1, CliqueJeu , CliqueOption, CliqueCredits}; }
+    CliqueMenu, CliqueJeu, CliqueJeu , CliqueOption, CliqueCredits}; }
 
 Choix tClavier() { return (Choix){
-    F_NULL, clavier, ClavierJeu , F_NULL, F_NULL}; }
+    F_NULL, F_NULL, ClavierJeu , F_NULL, F_NULL}; }
 
-Choix tTempo(){return (Choix){
-F_NULL, F_NULL, TempoJeu , F_NULL, F_NULL
-};}

@@ -163,5 +163,25 @@ void pageScore(Donnees *donnees)
 //         }
 //     }
 // }
-
-
+void ecrire(char text[12])
+{
+    char a[12] = "";
+    if ((caractereClavier() == 8) && (strcmp(text, "") != 0))
+    {
+        strncpy(a, text, strlen(text) - 1);
+        strcat(a, "\0");
+        strcpy(text, a);
+    }
+    else
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            if (text[i] == '\0')
+            {
+                text[i] = caractereClavier();
+                text[i + 1] = '\0';
+                break;
+            }
+        }
+    }
+}

@@ -20,4 +20,3 @@ void F_NULL();
 Choix tAffichage();
 Choix tClique();
 Choix tClavier();
-Choix tTempo();
