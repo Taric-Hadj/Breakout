@@ -117,6 +117,7 @@ void Map(char tab[25][23])
                 tab[i][j] = fgetc(map);
             }
             fgetc(map);
+            fgetc(map);
         }
         fclose(map);
     }
