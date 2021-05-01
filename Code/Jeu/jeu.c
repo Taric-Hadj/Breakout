@@ -31,7 +31,7 @@ void pageJeu(Donnees *donnees)
     afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
 }
 
-void fantome(int x, int y, int r)
+void fantome(float x, float y, float r)
 {
     cercle(x, y, r);
     rectangle(x - r, y - r, x + r, y);
@@ -50,23 +50,33 @@ void fantome(int x, int y, int r)
 void pageJeu1(Donnees *donnees)
 {
     affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
-    couleurCourante(255, 255, 0);
     epaisseurDeTrait(2);
+    couleurCourante(255, 255, 0);
+    if (donnees->pacman.bonus)
+        couleurCourante(255, 180, 0);
     cercle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, 8);
     //monstre 1 bleu
     couleurCourante(0, 150, 200);
+    if (donnees->monstre[0].malus)
+        couleurCourante(0, 0, 255);
     fantome(largeurFenetre() / 8 + donnees->monstre[0].x, 6 * hauteurFenetre() / 7 - donnees->monstre[0].y, 8);
 
     //monstre 2 rose
     couleurCourante(238, 130, 238);
+    if (donnees->monstre[1].malus)
+        couleurCourante(0, 0, 255);
     fantome(largeurFenetre() / 8 + donnees->monstre[1].x, 6 * hauteurFenetre() / 7 - donnees->monstre[1].y, 8);
 
     //monstre 3 orange
     couleurCourante(255, 165, 0);
+    if (donnees->monstre[2].malus)
+        couleurCourante(0, 0, 255);
     fantome(largeurFenetre() / 8 + donnees->monstre[2].x, 6 * hauteurFenetre() / 7 - donnees->monstre[2].y, 8);
 
     //monstre 4 rouge
     couleurCourante(255, 0, 0);
+    if (donnees->monstre[3].malus)
+        couleurCourante(0, 0, 255);
     fantome(largeurFenetre() / 8 + donnees->monstre[3].x, 6 * hauteurFenetre() / 7 - donnees->monstre[3].y, 8);
 
     //Score
@@ -74,6 +84,12 @@ void pageJeu1(Donnees *donnees)
     char score[20] = "";
     sprintf(score, "Score: %d", donnees->score);
     afficheChaine(score, 35, 0.5 * largeurFenetre() / 14, 11 * hauteurFenetre() / 12);
+
+    //Vies
+    couleurCourante(255, 255, 0);
+    char vies[20] = "";
+    sprintf(vies, "Vies: %d", donnees->vies);
+    afficheChaine(vies, 35, 10 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
 
     //bouton retour
     couleurCourante(20, 20, 20);
@@ -220,13 +236,13 @@ void avanceFantomes(char tab[25][23], Monstre *fantome)
     {
         if (tab[(int)floor((fantome->y - 1) / 20)][(int)floor((fantome->x) / 20)] != '0' && tab[(int)floor((fantome->y - 1) / 20)][(int)floor((fantome->x + 15) / 20)] != '0')
         {
-            fantome->y--;
+            fantome->y -= fantome->v;
             int i = rand() % 100;
-            if (i <= 5)
+            if (i < 3)
             {
                 fantome->orientation = 1;
             }
-            else if (5 < i && i <= 10)
+            else if (3 < i && i < 6)
             {
                 fantome->orientation = 3;
             }
@@ -252,13 +268,13 @@ void avanceFantomes(char tab[25][23], Monstre *fantome)
     {
         if (tab[(int)floor((fantome->y) / 20)][(int)floor((fantome->x - 1) / 20)] != '0' && tab[(int)floor((fantome->y + 15) / 20)][(int)floor((fantome->x - 1) / 20)] != '0' && fantome->x != 0)
         {
-            fantome->x--;
+            fantome->x -= fantome->v;
             int i = rand() % 100;
-            if (i <= 5)
+            if (i < 3)
             {
                 fantome->orientation = 0;
             }
-            else if (5 < i && i <= 10)
+            else if (3 < i && i < 6)
             {
                 fantome->orientation = 2;
             }
@@ -288,13 +304,13 @@ void avanceFantomes(char tab[25][23], Monstre *fantome)
     {
         if (tab[(int)floor((fantome->y) / 20) + 1][(int)floor((fantome->x) / 20)] != '0' && tab[(int)floor((fantome->y) / 20) + 1][(int)floor((fantome->x + 15) / 20)] != '0')
         {
-            fantome->y++;
+            fantome->y += fantome->v;
             int i = rand() % 100;
-            if (i <= 5)
+            if (i < 3)
             {
                 fantome->orientation = 1;
             }
-            else if (5 < i && i <= 10)
+            else if (3 < i && i < 6)
             {
                 fantome->orientation = 3;
             }
@@ -320,13 +336,13 @@ void avanceFantomes(char tab[25][23], Monstre *fantome)
     {
         if (tab[(int)floor((fantome->y) / 20)][(int)floor((fantome->x) / 20) + 1] != '0' && tab[(int)floor((fantome->y + 15) / 20)][(int)floor((fantome->x) / 20) + 1] != '0' && fantome->x != 440)
         {
-            fantome->x++;
+            fantome->x += fantome->v;
             int i = rand() % 100;
-            if (i <= 5)
+            if (i < 3)
             {
                 fantome->orientation = 0;
             }
-            else if (5 < i && i <= 10)
+            else if (3 < i && i < 6)
             {
                 fantome->orientation = 2;
             }
@@ -388,7 +404,7 @@ void affichageMap(char tab[25][23], int x, int y)
     }
 }
 
-void MangeGrain(char tab[25][23], Pacman pacman, int *score)
+void MangeGrain(char tab[25][23], Pacman *pacman, Monstre *monstre, int *score)
 {
     // for (int i = 0; i < 25; i++)
     // {
@@ -401,14 +417,17 @@ void MangeGrain(char tab[25][23], Pacman pacman, int *score)
     //         }
     //     }
     // }
-    if (tab[(int)floor((pacman.y + 10) / 20)][(int)floor((pacman.x + 10) / 20)] == '.')
+    if (tab[(int)floor((pacman->y + 10) / 20)][(int)floor((pacman->x + 10) / 20)] == '.')
     {
-        tab[(int)floor((pacman.y + 10) / 20)][(int)floor((pacman.x + 10) / 20)] = ' ';
+        tab[(int)floor((pacman->y + 10) / 20)][(int)floor((pacman->x + 10) / 20)] = ' ';
         *score += 10;
     }
-    if (tab[(int)floor(pacman.y / 20)][(int)floor(pacman.x / 20)] == '@')
+    if (tab[(int)floor((pacman->y + 10) / 20)][(int)floor((pacman->x + 10) / 20)] == '@')
     {
-        tab[(int)floor(pacman.y / 20)][(int)floor(pacman.x / 20)] = ' ';
+        tab[(int)floor((pacman->y + 10) / 20)][(int)floor((pacman->x + 10) / 20)] = ' ';
+        pacman->bonus = 1;
+        for (int k = 0; k < 4; k++)
+            monstre[k].malus = 1;
         *score += 50;
     }
 }
@@ -416,8 +435,72 @@ void MangeGrain(char tab[25][23], Pacman pacman, int *score)
 void TempoJeu(Donnees *donnees)
 {
     static int i = 0;
+    static int j = 0;
     avancePacman(donnees->tab, &donnees->pacman);
-    MangeGrain(donnees->tab, donnees->pacman, &donnees->score);
+    MangeGrain(donnees->tab, &donnees->pacman, donnees->monstre, &donnees->score);
+
+    if (donnees->tab[2][1] != '@')
+        donnees->superpacgomme[0]++;
+    if (donnees->tab[2][21] != '@')
+        donnees->superpacgomme[1]++;
+    if (donnees->tab[18][1] != '@')
+        donnees->superpacgomme[2]++;
+    if (donnees->tab[18][21] != '@')
+        donnees->superpacgomme[3]++;
+    for (int k = 0; k < 4; k++)
+    {
+        if (donnees->superpacgomme[0] == 1000)
+            donnees->tab[2][1] = '@';
+        if (donnees->superpacgomme[1] == 1000)
+            donnees->tab[2][21] = '@';
+        if (donnees->superpacgomme[2] == 1000)
+            donnees->tab[18][1] = '@';
+        if (donnees->superpacgomme[3] == 1000)
+            donnees->tab[18][21] = '@';
+    }
+
+    for (int k = 0; k < 4; k++)
+    {
+        if (donnees->monstre[k].malus)
+        {
+            donnees->monstre[k].v = 0.5;
+            if (fabsf(donnees->pacman.x - donnees->monstre[k].x) < 16 && fabsf(donnees->pacman.y - donnees->monstre[k].y) < 16)
+            {
+                donnees->monstre[k].x = 220;
+                donnees->monstre[k].y = 200;
+                donnees->monstre[k].malus = 0;
+                donnees->monstre[k].orientation = 0;
+                donnees->nb_fmange++;
+                donnees->score += pow(2, donnees->nb_fmange) * 100;
+            }
+        }
+        else
+        {
+            donnees->monstre[k].v = 1;
+            if (fabsf(donnees->pacman.x - donnees->monstre[k].x) < 16 && fabsf(donnees->pacman.y - donnees->monstre[k].y) < 16)
+            {
+                donnees->pacman.x = 220;
+                donnees->pacman.y = 360;
+
+                donnees->vies--;
+            }
+        }
+    }
+    if (donnees->pacman.bonus)
+    {
+        j++;
+        if (j == 250)
+        {
+            donnees->pacman.bonus = 0;
+            j = 0;
+            for (int k = 0; k < 4; k++)
+            {
+                donnees->monstre[k].malus = 0;
+                donnees->monstre[k].v = 1;
+            }
+        }
+    }
+
     if (i < 20)
     {
         donnees->monstre[0].x++;
@@ -499,6 +582,11 @@ void TempoJeu(Donnees *donnees)
         for (int j = 0; j < 4; j++)
             avanceFantomes(donnees->tab, &donnees->monstre[j]);
     i++;
+
+    if (donnees->vies == 0)
+    {
+        donnees->page = 1;
+    }
 }
 
 // void ecrire(char text[12])

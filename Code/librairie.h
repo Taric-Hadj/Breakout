@@ -24,17 +24,20 @@ typedef struct
 
 typedef struct
 {
-    int x;
-    int y;
+    float x;
+    float y;
     int orientation;
     char caractere;
+    int bonus;
 } Pacman;
 
 typedef struct
 {
-    int x;
-    int y;
+    float x;
+    float y;
+    float v;
     int orientation;
+    int malus;
 } Monstre;
 
 typedef struct
@@ -46,5 +49,8 @@ typedef struct
     Pacman pacman;
     Monstre monstre[4];
     int score;
+    int nb_fmange;
+    int vies;
+    int superpacgomme[4];
 } Donnees;
 #endif
