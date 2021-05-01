@@ -45,4 +45,3 @@ Choix tClique() { return (Choix){
 
 Choix tClavier() { return (Choix){
     F_NULL, F_NULL, ClavierJeu , F_NULL, F_NULL}; }
-
