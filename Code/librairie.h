@@ -36,6 +36,7 @@ typedef struct
     float x;
     float y;
     float v;
+    int tmp;
     int orientation;
     int malus;
 } Monstre;

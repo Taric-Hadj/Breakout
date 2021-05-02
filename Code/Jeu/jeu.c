@@ -436,9 +436,11 @@ void TempoJeu(Donnees *donnees)
 {
     static int i = 0;
     static int j = 0;
-    avancePacman(donnees->tab, &donnees->pacman);
+    if (i > 50)
+        avancePacman(donnees->tab, &donnees->pacman);
+    else
+        i++;
     MangeGrain(donnees->tab, &donnees->pacman, donnees->monstre, &donnees->score);
-
     if (donnees->tab[2][1] != '@')
         donnees->superpacgomme[0]++;
     if (donnees->tab[2][21] != '@')
@@ -449,13 +451,13 @@ void TempoJeu(Donnees *donnees)
         donnees->superpacgomme[3]++;
     for (int k = 0; k < 4; k++)
     {
-        if (donnees->superpacgomme[0] == 1000)
+        if (donnees->superpacgomme[0] == 2000)
             donnees->tab[2][1] = '@';
-        if (donnees->superpacgomme[1] == 1000)
+        if (donnees->superpacgomme[1] == 2000)
             donnees->tab[2][21] = '@';
-        if (donnees->superpacgomme[2] == 1000)
+        if (donnees->superpacgomme[2] == 2000)
             donnees->tab[18][1] = '@';
-        if (donnees->superpacgomme[3] == 1000)
+        if (donnees->superpacgomme[3] == 2000)
             donnees->tab[18][21] = '@';
     }
 
@@ -468,6 +470,10 @@ void TempoJeu(Donnees *donnees)
             {
                 donnees->monstre[k].x = 220;
                 donnees->monstre[k].y = 200;
+                if (k == 1 || k == 2)
+                    donnees->monstre[k].tmp = 40;
+                else
+                    donnees->monstre[k].tmp = 60;
                 donnees->monstre[k].malus = 0;
                 donnees->monstre[k].orientation = 0;
                 donnees->nb_fmange++;
@@ -481,7 +487,6 @@ void TempoJeu(Donnees *donnees)
             {
                 donnees->pacman.x = 220;
                 donnees->pacman.y = 360;
-
                 donnees->vies--;
             }
         }
@@ -501,87 +506,83 @@ void TempoJeu(Donnees *donnees)
         }
     }
 
-    if (i < 20)
-    {
-        donnees->monstre[0].x++;
-        donnees->monstre[1].x++;
-        donnees->monstre[2].x--;
-        donnees->monstre[3].x--;
-    }
-    else if (i < 40)
-    {
-        donnees->monstre[0].x++;
-        donnees->monstre[1].y--;
-        donnees->monstre[2].y--;
-        donnees->monstre[3].x--;
-    }
-    else if (i < 60)
-    {
-        donnees->monstre[0].y--;
-        donnees->monstre[1].y--;
-        donnees->monstre[2].y--;
-        donnees->monstre[3].y--;
-    }
-    else if (i < 80)
-    {
-        donnees->monstre[0].y--;
-        donnees->monstre[1].x--;
-        donnees->monstre[2].x++;
-        donnees->monstre[3].y--;
-    }
-    else if (i < 100)
-    {
-        donnees->monstre[0].x--;
-        donnees->monstre[1].x--;
-        donnees->monstre[2].x++;
-        donnees->monstre[3].x++;
-    }
-    else if (i < 140)
-    {
-        donnees->monstre[0].y--;
-        donnees->monstre[1].x--;
-        donnees->monstre[2].x++;
-        donnees->monstre[3].y--;
-    }
-    else if (i < 200)
-    {
-        donnees->monstre[0].x--;
-        donnees->monstre[1].y++;
-        donnees->monstre[2].y++;
-        donnees->monstre[3].x++;
-    }
-    else if (i < 260)
-    {
-        donnees->monstre[0].y--;
-        donnees->monstre[1].y++;
-        donnees->monstre[2].y++;
-        donnees->monstre[3].y--;
-    }
-    else if (i < 280)
-    {
-        donnees->monstre[0].x--;
-        donnees->monstre[1].y++;
-        donnees->monstre[2].y++;
-        donnees->monstre[3].x++;
-    }
-    else if (i < 320)
-    {
-        donnees->monstre[0].x--;
-        donnees->monstre[1].x--;
-        donnees->monstre[2].x++;
-        donnees->monstre[3].x++;
-    }
-    else if (i < 360)
-    {
-        donnees->monstre[0].x++;
-        donnees->monstre[1].y++;
-        donnees->monstre[2].y++;
-        donnees->monstre[3].x--;
-    }
-    else
-        for (int j = 0; j < 4; j++)
+    for (int j = 0; j < 4; j++)
+        if (donnees->monstre[j].tmp < 360)
+        {
+            if (j == 0)
+            {
+                if (donnees->monstre[j].tmp < 40)
+                    donnees->monstre[j].x++;
+                else if (donnees->monstre[j].tmp < 80)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 100)
+                    donnees->monstre[j].x--;
+                else if (donnees->monstre[j].tmp < 140)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 200)
+                    donnees->monstre[j].x--;
+                else if (donnees->monstre[j].tmp < 260)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 320)
+                    donnees->monstre[j].x--;
+                else if (donnees->monstre[j].tmp < 360)
+                    donnees->monstre[j].x++;
+            }
+            else if (j == 1)
+            {
+                if (donnees->monstre[j].tmp < 20)
+                    donnees->monstre[j].x++;
+                else if (donnees->monstre[j].tmp < 60)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 140)
+                    donnees->monstre[j].x--;
+                else if (donnees->monstre[j].tmp < 280)
+                    donnees->monstre[j].y++;
+                else if (donnees->monstre[j].tmp < 320)
+                    donnees->monstre[j].x--;
+                else if (donnees->monstre[j].tmp < 360)
+                    donnees->monstre[j].y++;
+            }
+            else if (j == 2)
+            {
+                if (donnees->monstre[j].tmp < 20)
+                    donnees->monstre[j].x--;
+                else if (donnees->monstre[j].tmp < 60)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 140)
+                    donnees->monstre[j].x++;
+                else if (donnees->monstre[j].tmp < 280)
+                    donnees->monstre[j].y++;
+                else if (donnees->monstre[j].tmp < 320)
+                    donnees->monstre[j].x++;
+                else if (donnees->monstre[j].tmp < 360)
+                    donnees->monstre[j].y++;
+            }
+            else
+            {
+                if (donnees->monstre[j].tmp < 40)
+                    donnees->monstre[j].x--;
+                else if (donnees->monstre[j].tmp < 80)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 100)
+                    donnees->monstre[j].x++;
+                else if (donnees->monstre[j].tmp < 140)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 200)
+                    donnees->monstre[j].x++;
+                else if (donnees->monstre[j].tmp < 260)
+                    donnees->monstre[j].y--;
+                else if (donnees->monstre[j].tmp < 320)
+                    donnees->monstre[j].x++;
+                else if (donnees->monstre[j].tmp < 360)
+                    donnees->monstre[j].x--;
+            }
+            donnees->monstre[j].tmp++;
+        }
+        else
+        {
             avanceFantomes(donnees->tab, &donnees->monstre[j]);
-    i++;
+        }
 
     if (donnees->vies == 0)
     {
