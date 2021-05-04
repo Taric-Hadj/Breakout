@@ -27,6 +27,10 @@ void choix(Donnees *donnees, Choix type)
     case 6:
         type.t6(donnees);
         break;
+    
+    case 7:
+        type.t7(donnees);
+        break;
     }
 }
 
