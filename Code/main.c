@@ -57,6 +57,7 @@ void gestionEvenement(EvenementGfx evenement)
     case Affichage:
         effaceFenetre(0, 0, 0);
         choix(&donnees, tAffichage());
+        /*grilleAide;*/
         break;
 
     case Clavier:

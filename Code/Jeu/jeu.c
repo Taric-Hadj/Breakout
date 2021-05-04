@@ -9,26 +9,111 @@ void pageJeu(Donnees *donnees)
     {
         ecrisImage((9 * largeurFenetre() / 14 - image->largeurImage), 10 * hauteurFenetre() / 12 - image->hauteurImage, image->largeurImage, image->hauteurImage, image->donneesRGB);
     }
-    effaceFenetre(0, 0, 0);
-    couleurCourante(255, 255, 0);
-    epaisseurDeTrait(6);
-    afficheChaine("PacMan", 80, 4 * largeurFenetre() / 14, 10.5 * hauteurFenetre() / 12);
-    epaisseurDeTrait(3);
-    couleurCourante(20, 20, 20);
-    rectangle(4.5 * largeurFenetre() / 14, 3 * hauteurFenetre() / 12, 9.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
-    couleurCourante(255, 255, 0);
-    afficheChaine("Valider", 40, 5.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
-    afficheChaine("Entrer votre pseudo", 40, 2 * largeurFenetre() / 14, 6.5 * hauteurFenetre() / 12);
-    couleurCourante(20, 20, 20);
-    rectangle(2 * largeurFenetre() / 14, 5 * hauteurFenetre() / 12, 12.5 * largeurFenetre() / 14, 3.5 * hauteurFenetre() / 12);
-    couleurCourante(20, 20, 20);
-    epaisseurDeTrait(2);
-    couleurCourante(255, 255, 255);
-    afficheChaine(donnees->text, 40, 3 * largeurFenetre() / 14, 9 * hauteurFenetre() / 24);
-    couleurCourante(20, 20, 20);
-    rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
-    couleurCourante(255, 255, 0);
-    afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+    
+		if(donnees->valAffichage == 0 || donnees->valAffichage == 1)
+		{	
+			if(donnees->valLangue == 0 || donnees->valLangue == 1)
+			{
+				effaceFenetre(0, 0, 0);
+				couleurCourante(255, 255, 0);
+				epaisseurDeTrait(6);
+				afficheChaine("PacMan", 80, 4 * largeurFenetre() / 14, 10.5 * hauteurFenetre() / 12);
+				epaisseurDeTrait(3);
+				couleurCourante(20, 20, 20);
+				rectangle(4.5 * largeurFenetre() / 14, 3 * hauteurFenetre() / 12, 9.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 0);
+				afficheChaine("Valider", 40, 5.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				afficheChaine("Entrer votre pseudo", 40, 2 * largeurFenetre() / 14, 6.5 * hauteurFenetre() / 12);
+				couleurCourante(20, 20, 20);
+				rectangle(2 * largeurFenetre() / 14, 5 * hauteurFenetre() / 12, 12.5 * largeurFenetre() / 14, 3.5 * hauteurFenetre() / 12);
+				couleurCourante(20, 20, 20);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 255);
+				afficheChaine(donnees->text, 40, 3 * largeurFenetre() / 14, 9 * hauteurFenetre() / 24);
+				couleurCourante(20, 20, 20);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 0);
+				afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12); // FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS SOMBRE FRANCAIS
+			}
+				
+			if(donnees->valLangue == 2)
+			{
+				effaceFenetre(0, 0, 0);
+				couleurCourante(255, 255, 0);
+				epaisseurDeTrait(6);
+				afficheChaine("PacMan", 80, 4 * largeurFenetre() / 14, 10.5 * hauteurFenetre() / 12);
+				epaisseurDeTrait(3);
+				couleurCourante(20, 20, 20);
+				rectangle(4.5 * largeurFenetre() / 14, 3 * hauteurFenetre() / 12, 9.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 0);
+				afficheChaine("Check", 40, 5.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				afficheChaine("Enter your pseudo", 40, 2 * largeurFenetre() / 14, 6.5 * hauteurFenetre() / 12);
+				couleurCourante(20, 20, 20);
+				rectangle(2 * largeurFenetre() / 14, 5 * hauteurFenetre() / 12, 12.5 * largeurFenetre() / 14, 3.5 * hauteurFenetre() / 12);
+				couleurCourante(20, 20, 20);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 255);
+				afficheChaine(donnees->text, 40, 3 * largeurFenetre() / 14, 9 * hauteurFenetre() / 24);
+				couleurCourante(20, 20, 20);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 0);
+				afficheChaine("Back", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12);// FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS SOMBRE ANGLAIS
+			}
+		}
+			
+		if(donnees->valAffichage == 2)
+		{
+			if(donnees->valLangue == 0 || donnees->valLangue == 1)
+			{
+				effaceFenetre(255, 248, 240);
+				couleurCourante(0, 0, 0);
+				epaisseurDeTrait(6);
+				afficheChaine("PacMan", 80, 4 * largeurFenetre() / 14, 10.5 * hauteurFenetre() / 12);
+				epaisseurDeTrait(3);
+				couleurCourante(214, 95, 0);
+				rectangle(4.5 * largeurFenetre() / 14, 3 * hauteurFenetre() / 12, 9.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				afficheChaine("Valider", 40, 5.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(0, 0, 0);
+				afficheChaine("Entrer votre pseudo", 40, 2 * largeurFenetre() / 14, 6.5 * hauteurFenetre() / 12);
+				couleurCourante(255, 215, 0);
+				rectangle(2 * largeurFenetre() / 14, 5 * hauteurFenetre() / 12, 12.5 * largeurFenetre() / 14, 3.5 * hauteurFenetre() / 12);
+				couleurCourante(20, 20, 20);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 255);
+				afficheChaine(donnees->text, 40, 3 * largeurFenetre() / 14, 9 * hauteurFenetre() / 24);
+				couleurCourante(214, 95, 0);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12); // FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS CLAIR FRANCAIS
+			}
+				
+			if(donnees->valLangue == 2)
+			{
+				effaceFenetre(255, 248, 240);
+				couleurCourante(0, 0, 0);
+				epaisseurDeTrait(6);
+				afficheChaine("PacMan", 80, 4 * largeurFenetre() / 14, 10.5 * hauteurFenetre() / 12);
+				epaisseurDeTrait(3);
+				couleurCourante(214, 95, 0);
+				rectangle(4.5 * largeurFenetre() / 14, 3 * hauteurFenetre() / 12, 9.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				afficheChaine("Check", 40, 5.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(0, 0, 0);
+				afficheChaine("Enter your pseudo", 40, 2 * largeurFenetre() / 14, 6.5 * hauteurFenetre() / 12);
+				couleurCourante(255, 215, 0);
+				rectangle(2 * largeurFenetre() / 14, 5 * hauteurFenetre() / 12, 12.5 * largeurFenetre() / 14, 3.5 * hauteurFenetre() / 12);
+				couleurCourante(20, 20, 20);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 255);
+				afficheChaine(donnees->text, 40, 3 * largeurFenetre() / 14, 9 * hauteurFenetre() / 24);
+				couleurCourante(214, 95, 0);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				afficheChaine("Back", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12); // FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS CLAIR ANGLAIS
+			}
+			
+		}
 }
 
 void fantome(float x, float y, float r)
@@ -49,7 +134,234 @@ void fantome(float x, float y, float r)
 
 void pageJeu1(Donnees *donnees)
 {
-    affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
+	if(donnees->valAffichage == 0 || donnees->valAffichage == 1)
+		{	
+			if(donnees->valLangue == 0 || donnees->valLangue == 1)
+			{
+				effaceFenetre(0, 0, 0);
+				affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 0);
+				if (donnees->pacman.bonus)
+					couleurCourante(255, 180, 0);
+				cercle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, 8);
+				//monstre 1 bleu
+				couleurCourante(0, 150, 200);
+				if (donnees->monstre[0].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[0].x, 6 * hauteurFenetre() / 7 - donnees->monstre[0].y, 8);
+
+				//monstre 2 rose
+				couleurCourante(238, 130, 238);
+				if (donnees->monstre[1].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[1].x, 6 * hauteurFenetre() / 7 - donnees->monstre[1].y, 8);
+
+				//monstre 3 orange
+				couleurCourante(255, 165, 0);
+				if (donnees->monstre[2].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[2].x, 6 * hauteurFenetre() / 7 - donnees->monstre[2].y, 8);
+
+				//monstre 4 rouge
+				couleurCourante(255, 0, 0);
+				if (donnees->monstre[3].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[3].x, 6 * hauteurFenetre() / 7 - donnees->monstre[3].y, 8);
+
+				//Score
+				couleurCourante(255, 255, 0);
+				char score[20] = "";
+				sprintf(score, "Score: %d", donnees->score);
+				afficheChaine(score, 35, 0.5 * largeurFenetre() / 14, 11 * hauteurFenetre() / 12);
+
+				//Vies
+				couleurCourante(255, 255, 0);
+				char vies[20] = "";
+				sprintf(vies, "Vies: %d", donnees->vies);
+				afficheChaine(vies, 35, 10 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+
+				//bouton retour
+				couleurCourante(20, 20, 20);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 0);
+				afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12);
+				 // FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS SOMBRE FRANCAIS
+			}
+				
+			if(donnees->valLangue == 2)
+			{
+				effaceFenetre(0, 0, 0);
+				affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 0);
+				if (donnees->pacman.bonus)
+					couleurCourante(255, 180, 0);
+				cercle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, 8);
+				//monstre 1 bleu
+				couleurCourante(0, 150, 200);
+				if (donnees->monstre[0].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[0].x, 6 * hauteurFenetre() / 7 - donnees->monstre[0].y, 8);
+
+				//monstre 2 rose
+				couleurCourante(238, 130, 238);
+				if (donnees->monstre[1].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[1].x, 6 * hauteurFenetre() / 7 - donnees->monstre[1].y, 8);
+
+				//monstre 3 orange
+				couleurCourante(255, 165, 0);
+				if (donnees->monstre[2].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[2].x, 6 * hauteurFenetre() / 7 - donnees->monstre[2].y, 8);
+
+				//monstre 4 rouge
+				couleurCourante(255, 0, 0);
+				if (donnees->monstre[3].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[3].x, 6 * hauteurFenetre() / 7 - donnees->monstre[3].y, 8);
+
+				//Score
+				couleurCourante(255, 255, 0);
+				char score[20] = "";
+				sprintf(score, "Score: %d", donnees->score);
+				afficheChaine(score, 35, 0.5 * largeurFenetre() / 14, 11 * hauteurFenetre() / 12);
+
+				//Vies
+				couleurCourante(0, 0, 0);
+				char vies[20] = "";
+				sprintf(vies, "Lifes: %d", donnees->vies);
+				afficheChaine(vies, 35, 10 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+
+				//bouton retour
+				couleurCourante(20, 20, 20);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 0);
+				afficheChaine("Back", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12);// FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS SOMBRE ANGLAIS
+			}
+		}
+			
+		if(donnees->valAffichage == 2)
+		{
+			if(donnees->valLangue == 0 || donnees->valLangue == 1)
+			{
+				effaceFenetre(255, 248, 240);
+				couleurCourante(0, 0, 0);
+				rectangle(1.52 * largeurFenetre() / 14, 10.4 * hauteurFenetre() / 12, 12.25 * largeurFenetre() / 14, 3 * hauteurFenetre() / 12);
+				affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 0);
+				if (donnees->pacman.bonus)
+					couleurCourante(255, 180, 0);
+				cercle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, 8);
+				//monstre 1 bleu
+				couleurCourante(0, 150, 200);
+				if (donnees->monstre[0].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[0].x, 6 * hauteurFenetre() / 7 - donnees->monstre[0].y, 8);
+
+				//monstre 2 rose
+				couleurCourante(238, 130, 238);
+				if (donnees->monstre[1].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[1].x, 6 * hauteurFenetre() / 7 - donnees->monstre[1].y, 8);
+
+				//monstre 3 orange
+				couleurCourante(255, 165, 0);
+				if (donnees->monstre[2].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[2].x, 6 * hauteurFenetre() / 7 - donnees->monstre[2].y, 8);
+
+				//monstre 4 rouge
+				couleurCourante(255, 0, 0);
+				if (donnees->monstre[3].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[3].x, 6 * hauteurFenetre() / 7 - donnees->monstre[3].y, 8);
+
+				//Score
+				couleurCourante(214, 95, 0);
+				rectangle(0 * largeurFenetre() / 14, 11.7 * hauteurFenetre() / 12, 5 * largeurFenetre() / 14, 10.7 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				char score[20] = "";
+				sprintf(score, "Score: %d", donnees->score);
+				afficheChaine(score, 35, 0.5 * largeurFenetre() / 14, 11 * hauteurFenetre() / 12);
+
+				//Vies
+				couleurCourante(214, 95, 0);
+				rectangle(9 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, largeurFenetre(), 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				char vies[20] = "";
+				sprintf(vies, "Vies: %d", donnees->vies);
+				afficheChaine(vies, 35, 10 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12);
+
+				//bouton retour
+				couleurCourante(214, 95, 0);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12);// FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS CLAIR FRANCAIS
+			}
+				
+			if(donnees->valLangue == 2)
+			{
+				effaceFenetre(255, 248, 240);
+				couleurCourante(0, 0, 0);
+				rectangle(1.52 * largeurFenetre() / 14, 10.4 * hauteurFenetre() / 12, 12.25 * largeurFenetre() / 14, 3 * hauteurFenetre() / 12);
+				affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
+				epaisseurDeTrait(2);
+				couleurCourante(255, 255, 0);
+				if (donnees->pacman.bonus)
+					couleurCourante(255, 180, 0);
+				cercle(largeurFenetre() / 8 + donnees->pacman.x, 6 * hauteurFenetre() / 7 - donnees->pacman.y, 8);
+				//monstre 1 bleu
+				couleurCourante(0, 150, 200);
+				if (donnees->monstre[0].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[0].x, 6 * hauteurFenetre() / 7 - donnees->monstre[0].y, 8);
+
+				//monstre 2 rose
+				couleurCourante(238, 130, 238);
+				if (donnees->monstre[1].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[1].x, 6 * hauteurFenetre() / 7 - donnees->monstre[1].y, 8);
+
+				//monstre 3 orange
+				couleurCourante(255, 165, 0);
+				if (donnees->monstre[2].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[2].x, 6 * hauteurFenetre() / 7 - donnees->monstre[2].y, 8);
+
+				//monstre 4 rouge
+				couleurCourante(255, 0, 0);
+				if (donnees->monstre[3].malus)
+					couleurCourante(0, 0, 255);
+				fantome(largeurFenetre() / 8 + donnees->monstre[3].x, 6 * hauteurFenetre() / 7 - donnees->monstre[3].y, 8);
+
+				//Score
+				couleurCourante(214, 95, 0);
+				rectangle(0 * largeurFenetre() / 14, 11.7 * hauteurFenetre() / 12, 5 * largeurFenetre() / 14, 10.7 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				char score[20] = "";
+				sprintf(score, "Score: %d", donnees->score);
+				afficheChaine(score, 35, 0.5 * largeurFenetre() / 14, 11 * hauteurFenetre() / 12);
+
+				//Vies
+				couleurCourante(214, 95, 0);
+				rectangle(9 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, largeurFenetre(), 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				char vies[20] = "";
+				sprintf(vies, "Lifes: %d", donnees->vies);
+				afficheChaine(vies, 35, 10 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12);
+
+				//bouton retour
+				couleurCourante(214, 95, 0);
+				rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
+				couleurCourante(255, 255, 255);
+				afficheChaine("Back", 35, 0.5 * largeurFenetre() / 14, 1.3 * hauteurFenetre() / 12);				 // FONCTION AFFICHAGE PAGE MUTATEUR OPTIONS CLAIR ANGLAIS
+			}
+			
+		}
+   /* affichageMap(donnees->tab, largeurFenetre() / 8, 6 * hauteurFenetre() / 7);
     epaisseurDeTrait(2);
     couleurCourante(255, 255, 0);
     if (donnees->pacman.bonus)
@@ -95,7 +407,7 @@ void pageJeu1(Donnees *donnees)
     couleurCourante(20, 20, 20);
     rectangle(0 * largeurFenetre() / 14, 1 * hauteurFenetre() / 12, 3.5 * largeurFenetre() / 14, 2 * hauteurFenetre() / 12);
     couleurCourante(255, 255, 0);
-    afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);
+    afficheChaine("Retour", 35, 0.5 * largeurFenetre() / 14, 1.5 * hauteurFenetre() / 12);*/
 
     static int i = 0;
     i++;

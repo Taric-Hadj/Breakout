@@ -14,6 +14,20 @@
 #define FANTOME 4
 #ifndef STRUCT
 #define STRUCT
+#define Ux largeurFenetre()/100
+#define Uy hauteurFenetre()/100
+#define grilleAide \
+for(int i = 1 ; i<100 ; i++)\
+	{\
+		char a[10] = "";\
+		couleurCourante(255, 255, 255);\
+		epaisseurDeTrait(1);\
+		sprintf(a, "%d", i);\
+		afficheChaine(a, 5, i*Ux, Uy/2);\
+		afficheChaine(a, 5, Ux/2, Uy*i);\
+		ligne(i*Ux, 0, i*Ux, 100*Uy);\
+		ligne(0, i*Uy, 100*Ux, i*Uy);\
+	}\
 
 typedef struct
 {
@@ -53,5 +67,10 @@ typedef struct
     int nb_fmange;
     int vies;
     int superpacgomme[4];
+    
+int valCredits;
+int valAffichage;
+int valLangue;
+
 } Donnees;
 #endif
