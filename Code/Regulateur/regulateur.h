@@ -13,6 +13,7 @@ typedef struct
     void (*t4)(Donnees *);
     void (*t5)(Donnees *);
     void (*t6)(Donnees *);
+    void (*t7)(Donnees *);
 } Choix;
 
 void choix(Donnees *donnees, Choix type);
